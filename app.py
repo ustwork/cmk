@@ -2,6 +2,7 @@ import requests
 from flask import Flask,redirect,make_response,request,abort
 from is_bot import Bots
 
+bots = Bots()
 
 app = Flask(__name__)
 
@@ -34,5 +35,5 @@ def hello(name):
 
 if __name__ == '__main__':
     # Bind to PORT if defined, otherwise default to 5000.
-    bots = Bots()
+    
     app.run(host='0.0.0.0', port=int('5000'))
